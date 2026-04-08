@@ -1,26 +1,36 @@
-![WhatsApp Image 2026-04-08 at 4 41 27 PM (1)](https://github.com/user-attachments/assets/c3ed27de-4634-4773-8956-8cd8f755ceae)
-![WhatsApp Image 2026-04-08 at 4 41 31 PM](https://github.com/user-attachments/assets/14e9e2f6-eaf3-40d0-ae58-edf99e859312)
-![WhatsApp Image 2026-04-08 at 4 41 31 PM (1)](https://github.com/user-attachments/assets/2f93ef58-950a-4af9-a6e5-27056657d914)
-![WhatsApp Image 2026-04-08 at 4 41 27 PM](https://github.com/user-attachments/assets/edf14071-56b3-43c0-a97c-b61a598e4d4b)
-#  AI ATS Resume Analyzer (Multi-Agent AI System)
+# 🤖 AI ATS Resume Analyzer (Multi-Agent AI System)
 
-An advanced **AI-powered Applicant Tracking System (ATS)** that evaluates resumes against job descriptions using a **multi-agent architecture powered by LLMs (Groq + LangChain)**.
+An advanced AI-powered Applicant Tracking System (ATS) that evaluates resumes against job descriptions using a **multi-agent architecture powered by LLMs (Groq + LangChain)**.
 
-This system simulates how real-world ATS tools work in companies and enhances it with **intelligent reasoning, feedback, and resume rewriting**.
+This system simulates how real-world ATS tools work and enhances them with intelligent reasoning, detailed feedback, and automatic resume rewriting.
 
 ---
 
-# 📌 Project Overview
+## 📌 Project Overview
 
-Modern hiring systems use ATS to filter resumes based on keyword relevance and formatting. This project replicates and improves that process using AI.
+Modern hiring platforms use ATS systems to filter resumes based on keyword relevance and formatting.
+This project **replicates and improves that process using AI**.
 
 👉 Instead of a single model, this system uses **multiple specialized AI agents**, each responsible for a specific task.
 
 ---
 
-# 🧠 Multi-Agent Architecture (CORE IDEA)
+## 📸 Screenshots
 
-Unlike traditional systems, this project follows a **modular agent-based design**:
+> ⚠️ Replace image paths with your actual files (recommended: `/images/ss1.png`, etc.)
+
+![Dashboard](![WhatsApp Image 2026-04-08 at 4 41 27 PM](https://github.com/user-attachments/assets/60a5cad6-d893-484a-93ca-138fe887bf47)
+)
+![Analysis](![WhatsApp Image 2026-04-08 at 4 41 27 PM (1)](https://github.com/user-attachments/assets/7e69959d-ace8-49bc-81fe-109894f7a038)
+)
+![Score](![WhatsApp Image 2026-04-08 at 4 41 31 PM](https://github.com/user-attachments/assets/4e737004-c6f2-4e36-9027-25b9568e2877)
+)
+![Feedback](![WhatsApp Image 2026-04-08 at 4 41 31 PM (1)](https://github.com/user-attachments/assets/108247c1-7f6a-4c76-a905-0cdeb3ceea67)
+)
+
+---
+
+## 🧠 Multi-Agent Architecture (CORE IDEA)
 
 ```
 User Input (Resume + Job Description)
@@ -46,176 +56,105 @@ User Input (Resume + Job Description)
 
 ---
 
-# 🤖 Agents Explained in Detail
+## 🤖 Agents Explained
 
-## 1️⃣ ATS Agent (Global Intelligence Agent)
+### 1️⃣ ATS Agent (Global Intelligence Agent)
 
-### 📌 Purpose:
+* Performs holistic evaluation of resume vs job description
+* Understands context and semantic alignment
+* Acts like a virtual recruiter
 
-Provides a **holistic evaluation** of the resume against the job description.
+### 2️⃣ 📊 Scorer Agent (Analytical Agent)
 
-### 🧠 What it does:
-
-* Understands the entire resume context
-* Compares semantic alignment with JD
-* Generates high-level ATS insights
-* Acts like a **virtual recruiter**
-
-### 💡 Output:
-
-* Overall analysis
-* Fitment summary
-* Context-aware reasoning
-
-### 🎯 Why important:
-
-This is the **"brain" of the system** — gives human-like understanding beyond keywords.
-
----
-
-## 2️⃣ 📊 Scorer Agent (Analytical Agent)
-
-### 📌 Purpose:
-
-Calculates **ATS score and keyword matching**
-
-### 🧠 What it does:
-
-* Extracts keywords from JD
+* Extracts keywords from job description
 * Matches them with resume
-* Computes relevance score
-* Identifies missing skills
+* Calculates ATS score (0–100)
+* Detects missing skills
 
-### 💡 Output:
+### 3️⃣ 🧠 Reviewer Agent (Evaluation Agent)
 
-* ATS Score (0–100)
-* Matched keywords
-* Missing keywords
-
-### 🎯 Why important:
-
-Simulates **real ATS filtering logic** used in companies.
-
----
-
-## 3️⃣ 🧠 Reviewer Agent (Evaluation Agent)
-
-### 📌 Purpose:
-
-Provides **detailed feedback on resume quality**
-
-### 🧠 What it does:
-
-* Identifies strengths
-* Detects weaknesses
+* Identifies strengths and weaknesses
 * Suggests improvements
-* Evaluates structure & clarity
+* Evaluates clarity and structure
 
-### 💡 Output:
+### 4️⃣ ✍️ Rewriter Agent (Generative Agent)
 
-* Strengths
-* Weaknesses
-* Actionable suggestions
-
-### 🎯 Why important:
-
-Helps user **improve resume quality**, not just score.
-
----
-
-## 4️⃣ ✍️ Rewriter Agent (Generative Agent)
-
-### 📌 Purpose:
-
-Automatically **improves and rewrites the resume**
-
-### 🧠 What it does:
-
-* Rephrases content professionally
-* Aligns resume with JD
-* Adds missing keywords naturally
+* Rewrites resume professionally
+* Aligns content with job description
 * Improves ATS compatibility
 
-### 💡 Output:
+---
 
-* Optimized resume content
+## 🔥 Why Multi-Agent System?
 
-### 🎯 Why important:
-
-Turns insights into **actionable output** — real value for users.
+| Traditional Approach       | Multi-Agent Approach |
+| -------------------------- | -------------------- |
+| One LLM handles everything | Specialized agents   |
+| Hard to scale              | Modular design       |
+| Generic output             | Structured output    |
+| Less control               | High flexibility     |
 
 ---
 
-# 🔥 Why Multi-Agent System?
+## ⚙️ Tech Stack
 
-| Traditional Approach    | Multi-Agent Approach |
-| ----------------------- | -------------------- |
-| One LLM does everything | Specialized agents   |
-| Less control            | Modular design       |
-| Hard to scale           | Easy to extend       |
-| Generic output          | Structured output    |
+**AI / LLM**
 
-👉 This architecture is used in **modern AI systems and startups**
+* Groq API
+* LangChain
 
----
-
-# ⚙️ Tech Stack
-
-## 🧠 AI / LLM
-
-* Groq API (Ultra-fast inference)
-* LangChain (Agent orchestration)
-
-## 🖥️ Backend
+**Backend**
 
 * Python
 * Flask
 
-## 🎨 Frontend
+**Frontend**
 
 * HTML
-* CSS (Custom UI)
+* CSS
 * JavaScript
-* Chart.js (Visualization)
 
-## 💾 Database
+**Visualization**
+
+* Chart.js
+
+**Database**
 
 * SQLite
 
 ---
 
-# 📊 Features
+## 📊 Features
 
 * ✅ Multi-agent AI system
 * ✅ ATS score calculation
 * ✅ Keyword extraction & matching
 * ✅ Resume feedback generation
 * ✅ AI-powered resume rewriting
-* ✅ Dynamic dashboard UI
+* ✅ Interactive dashboard UI
 * ✅ Graph-based score visualization
 * ✅ Data persistence (SQLite)
 
 ---
 
-# 📁 Project Structure
+## 📁 Project Structure
 
 ```
 ai-ats-resume-scanner/
+├── app.py
+├── main.py
+├── database.py
 │
-├── app.py                  # Flask app (entry point)
-├── main.py                 # Agent orchestration
-├── database.py             # DB operations
-│
-├── agents/                 # AI Agents
+├── agents/
 │   ├── ats_agent.py
 │   ├── scorer_agent.py
 │   ├── reviewer_agent.py
 │   └── rewriter_agent.py
 │
 ├── utils/
-│   ├── parser.py           # Resume parser (PDF/DOCX)
-│   ├── scorer.py           # Keyword logic
-│   └── prompts.py          # LLM prompts
+│   ├── parser.py
+│   ├── scorer.py
+│   └── prompts.py
 │
 ├── templates/
 │   └── index.html
@@ -229,47 +168,32 @@ ai-ats-resume-scanner/
 
 ---
 
-# 🚀 Installation & Setup
+## 🚀 Installation & Setup
 
 ```bash
 git clone https://github.com/Atul-Singh-0072/ai-ats-resume-scanner.git
 cd ai-ats-resume-scanner
-```
 
-### Create virtual environment
-
-```bash
+# Create virtual environment
 python -m venv venv
 venv\Scripts\activate
-```
 
-### Install dependencies
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
 
-### Set API Key
-
-```bash
+# Set API Key
 set GROQ_API_KEY=your_api_key
-```
 
-### Run project
-
-```bash
+# Run project
 python app.py
 ```
 
-Open:
-
-```
-http://127.0.0.1:5000
-```
+Open in browser:
+👉 http://127.0.0.1:5000
 
 ---
 
-# 💾 Database Design
+## 💾 Database Design
 
 | Field   | Description      |
 | ------- | ---------------- |
@@ -279,36 +203,36 @@ http://127.0.0.1:5000
 
 ---
 
-# 📸 UI Features
+## 📊 UI Features
 
-* 🎯 Score visualization (chart + circle)
-* 🏷️ Keyword tags
+* 🎯 ATS Score visualization (chart + circle)
+* 🏷️ Keyword tags display
 * 📋 Structured feedback cards
 * ✍️ Resume preview section
 
 ---
 
-# 🚀 Future Enhancements
+## 🚀 Future Enhancements
 
-* 🔐 User authentication system
+* 🔐 User authentication
 * ☁️ Cloud deployment (AWS / GCP)
-* 📄 Download resume (PDF/DOCX)
-* 🧠 Memory-enabled agents
+* 📄 Resume download (PDF/DOCX)
+* 🧠 Memory-enabled AI agents
 * 📊 Advanced analytics dashboard
 
 ---
 
-# 💡 Key Learnings
+## 💡 Key Learnings
 
 * Multi-agent system design
-* LLM integration in production apps
+* LLM integration in real-world apps
 * Prompt engineering
 * Full-stack AI development
 * Modular architecture
 
 ---
 
-# 📌 Use Cases
+## 📌 Use Cases
 
 * Job seekers optimizing resumes
 * HR automation tools
@@ -317,13 +241,19 @@ http://127.0.0.1:5000
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Atul Singh**
-GitHub: https://github.com/Atul-Singh-0072
+🔗 https://github.com/Atul-Singh-0072
 
 ---
 
-# ⭐ Support
+## ⭐ Support
 
 If you like this project, please ⭐ star the repository!
+
+---
+
+## 🏷️ Topics
+
+`ai` `nlp` `ats-scanner` `resume-analysis` `llm` `flask` `python` `generative-ai` `web-app`
