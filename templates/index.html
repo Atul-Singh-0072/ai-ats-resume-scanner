@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATS Resume Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>HireSense AI 🚀</h1>
+        <p class="subtitle">
+            AI-powered Resume Analyzer for smarter hiring decisions
+        </p>
+
+        <div class="hero-tags">
+            <span>⚡ Instant ATS Score</span>
+            <span>🤖 AI Feedback</span>
+            <span>📄 Resume Improvement</span>
+        </div>
+    </div>
+
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+        🤖 Analyzing Resume...
+    </div>
+
+    <!-- FORM -->
+    <form method="POST" enctype="multipart/form-data" class="card form-card">
+        <input type="file" name="resume" required>
+        <textarea name="jd" placeholder="Paste job description..." required></textarea>
+        <button type="submit">🚀 Analyze Resume</button>
+    </form>
+
+    <!-- ERROR -->
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <!-- RESULT -->
+    {% if score > 0 %}
+    <div class="card">
+
+        <!-- Badge -->
+        <div class="badge 
+            {% if score >= 80 %}good
+            {% elif score >= 50 %}average
+            {% else %}bad
+            {% endif %}">
+            ⭐ ATS Score: {{ score }}%
+        </div>
+
+        <!-- Small Circle -->
+        <div class="small-circle">
+            {{ score }}%
+        </div>
+
+        <!-- Chart -->
+        <div class="chart-box">
+            <canvas id="chart"></canvas>
+        </div>
+
+        <!-- Breakdown -->
+        <div class="section">
+            <h3>📊 Score Breakdown</h3>
+
+            <div class="bar">
+                <label>ATS Match</label>
+                <div class="progress">
+                    <div style="width: {{ breakdown.ats_match | default(0) }}%"></div>
+                </div>
+            </div>
+
+            <div class="bar">
+                <label>Skills</label>
+                <div class="progress">
+                    <div style="width: {{ breakdown.skills | default(0) }}%"></div>
+                </div>
+            </div>
+
+            <div class="bar">
+                <label>Experience</label>
+                <div class="progress">
+                    <div style="width: {{ breakdown.experience | default(0) }}%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Keywords -->
+        <div class="section">
+            <h3>🔑 Keywords ({{ matched_keywords | length }})</h3>
+            <div class="tags">
+                {% for word in matched_keywords %}
+                    <span>{{ word }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Analysis -->
+        <div class="section">
+            <div class="analysis-grid">
+
+                <div class="analysis-card good">
+                    <h3>✅ Strengths</h3>
+                    <ul>
+                        {% for item in analysis.strengths %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="analysis-card bad">
+                    <h3>⚠️ Weaknesses</h3>
+                    <ul>
+                        {% for item in analysis.weaknesses %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="analysis-card suggest">
+                    <h3>💡 Suggestions</h3>
+                    <ul>
+                        {% for item in analysis.suggestions %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Rewrite -->
+        <div class="section">
+            <h3>📄 Improved Resume Suggestions</h3>
+            <div class="rewrite-box">
+                {{ rewrite | default("No suggestions generated.") }}
+            </div>
+        </div>
+
+    </div>
+    {% endif %}
+
+</div>
+
+<!-- Chart -->
+<script>
+const score = {{ score | tojson | default(0) }};
+
+if(score > 0){
+    const ctx = document.getElementById('chart');
+    if(ctx){
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Score','Remaining'],
+                datasets: [{
+                    data: [score, 100 - score],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                cutout: '70%',
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    }
+}
+</script>
+
+<!-- Loader Script -->
+<script>
+const form = document.querySelector("form");
+if(form){
+    form.addEventListener("submit", function() {
+        const loader = document.getElementById("loader");
+        if(loader){
+            loader.style.display = "block";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
