@@ -1,3 +1,7 @@
+![WhatsApp Image 2026-04-08 at 4 41 27 PM (1)](https://github.com/user-attachments/assets/c3ed27de-4634-4773-8956-8cd8f755ceae)
+![WhatsApp Image 2026-04-08 at 4 41 31 PM](https://github.com/user-attachments/assets/14e9e2f6-eaf3-40d0-ae58-edf99e859312)
+![WhatsApp Image 2026-04-08 at 4 41 31 PM (1)](https://github.com/user-attachments/assets/2f93ef58-950a-4af9-a6e5-27056657d914)
+![WhatsApp Image 2026-04-08 at 4 41 27 PM](https://github.com/user-attachments/assets/edf14071-56b3-43c0-a97c-b61a598e4d4b)
 #  AI ATS Resume Analyzer (Multi-Agent AI System)
 
 An advanced **AI-powered Applicant Tracking System (ATS)** that evaluates resumes against job descriptions using a **multi-agent architecture powered by LLMs (Groq + LangChain)**.
